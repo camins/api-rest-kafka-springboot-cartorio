@@ -3,7 +3,6 @@ package br.com.camila.cartorio.kafka.config;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,10 +23,6 @@ public class KafkaProducerConfig {
 	
 	@Value(value= "${topic.name.producer}")
 	private String topic;
-	/*
-	 * @Bean public NewTopic createTopic() { return new NewTopic(topic, 3, (short) 1
-	 * ); }
-	 */
 	
 	@Bean
 	public ProducerFactory<String, PessoaDTO> cartorioProducerFactory(){

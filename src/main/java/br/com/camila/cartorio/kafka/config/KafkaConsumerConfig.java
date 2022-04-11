@@ -34,13 +34,18 @@ public class KafkaConsumerConfig {
 	@Bean
 	public ConsumerFactory<String, ReplyCpfDTO> cartorioConsumerFactory() {
 		
+		JsonDeserializer<ReplyCpfDTO> deserializer = new JsonDeserializer<>(ReplyCpfDTO.class);
+	    deserializer.setRemoveTypeHeaders(false);
+	    deserializer.addTrustedPackages("*");
+	    deserializer.setUseTypeMapperForKey(true);
+		
 		Map<String, Object> configProps = new HashMap<>();
 		configProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAdress);
 		configProps.put(ConsumerConfig.GROUP_ID_CONFIG, group);
 		return new DefaultKafkaConsumerFactory<>(
 				configProps,
 				new StringDeserializer(),
-				new JsonDeserializer<>(ReplyCpfDTO.class));
+				deserializer);
 	}
 
 	@Bean
