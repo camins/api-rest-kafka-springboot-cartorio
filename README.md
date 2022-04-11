@@ -2,7 +2,7 @@
 
 Você já precisou tirar uma certidão de nascimento de um bebê que acabou de nascer? Já observou que o CPF é gerado nesse momento? Já pensou em como é gerado esse CPF e quem mantem esses registros?
 
-Este projeto é um microsserviço responsável por enviar a solicitação da geração de um novo CPF para o microsserviço da receita (api-rest-kafka-springboot-receitaFederal), receber o CPF gerado e gravar na pessoa da requisição.
+Este projeto é um microsserviço responsável por enviar a solicitação da geração de um novo CPF, receber do [microsserviço da receita federal](https://github.com/camins/api-rest-kafka-springboot-receitaFederal) o CPF gerado e gravar na pessoa da requisição.
 
 ## Ferramentas
 
@@ -26,3 +26,11 @@ A API Rest do cartório possui um método POST no caminho (url:porta/cartorio/) 
       "sexo": "sexo",
       "dataNascimento": "data e hora do nascimento"
     }
+
+A API irá processar esses dados e enviar uma requisição para o tópico *cartorio-cpf-request* do servidor kafka. O [microsserviço da receita federal](https://github.com/camins/api-rest-kafka-springboot-receitaFederal) que estará consumindo os dados recebidos nesse tópico, irá gerar o CPF e retornar um objeto JSON para o tópico *cpf-calculate-reply*.
+
+## Bora testar
+
+Para realizar testes utilizando essa API, também é necessário realizar o clone do projeto de [microsserviço da receita federal](https://github.com/camins/api-rest-kafka-springboot-receitaFederal).
+
+Para executar e testar esses projetos (*Spring Tool Suite*) é necessario antes executar via terminal os containers docker do kafka e mySQL localizados na pasta resources do projeto.
