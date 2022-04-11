@@ -14,3 +14,15 @@ Este projeto é um microsserviço responsável por enviar a solicitação da ger
 ## Diagrama da aplicação
 
 ![Diagrama da aplicacao](/.github/diagram.png)
+
+## Comunicação entre os microsserviços
+
+A API Rest do cartório possui um método POST no caminho (url:porta/cartorio/) que recebe um objeto JSON com a seguinte estrutura:
+
+    {
+      "nome": "nome",
+      "cidade": "cidade",
+      "estado": "estado",
+      "sexo": "sexo",
+      "dataNascimento": "data e hora do nascimento"
+    }
