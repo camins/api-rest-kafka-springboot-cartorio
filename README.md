@@ -31,6 +31,11 @@ A API irá processar esses dados e enviar uma requisição para o tópico *carto
 
 ## Bora testar
 
-Para realizar testes utilizando essa API, também é necessário realizar o clone do projeto de [microsserviço da receita federal](https://github.com/camins/api-rest-kafka-springboot-receitaFederal).
+Para executar e realizar testes nesse projeto (*Spring Tool Suite*), é necessário:
 
-Para executar e testar esses projetos (*Spring Tool Suite*) é necessario antes executar via terminal os containers docker do kafka e mySQL localizados na pasta resources do projeto.
+ * Realizar o clone do projeto de [microsserviço da receita federal](https://github.com/camins/api-rest-kafka-springboot-receitaFederal);
+ * Executar via terminal os containers docker do kafka e mySQL localizados na pasta resources do projeto, usando os seguintes comandos:
+
+    docker-compose -f kafka-docker-compose.yml up -d
+    docker-compose -f mysql-docker-compose.yml up -d
+    
