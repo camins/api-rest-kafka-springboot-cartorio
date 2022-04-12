@@ -10,6 +10,7 @@ Este projeto é um microsserviço responsável por enviar a solicitação da ger
 - Spring boot
 - MySQL
 - Apache Kafka
+- Docker (docker-compose)
 
 ## Diagrama da aplicação
 
@@ -36,19 +37,19 @@ Para executar e realizar testes nesse projeto (*Spring Tool Suite*), é necessá
  * Realizar o clone do projeto de [microsserviço da receita federal](https://github.com/camins/api-rest-kafka-springboot-receitaFederal);
  * Executar via terminal os containers docker do kafka e mySQL localizados na pasta resources do projeto , usando os seguintes comandos:
 
-    docker-compose -f kafka-docker-compose.yml up -d
-    docker-compose -f mysql-docker-compose.yml up -d
+        docker-compose -f kafka-docker-compose.yml up -d
+        docker-compose -f mysql-docker-compose.yml up -d
     
 * Utilizando o software Insominia, faça uma requisição **POST** para o endereço *localhost:8080/cartorio/* passando o corpo do objeto JSON:
 
-    {
-      "nome": "Dona Florinda da Silva",
-      "cidade": "Natal",
-      "estado": "RN",
-      "sexo": "Feminino",
-      "dataNascimento": "1949-02-08T07:50:00"
-    }
+        {
+          "nome": "Dona Florinda da Silva",
+          "cidade": "Natal",
+          "estado": "RN",
+          "sexo": "Feminino",
+          "dataNascimento": "1949-02-08T07:50:00"
+        }
     
  É esperado que retorne um *status 201 created* com um objeto JSON contendo o objeto criado.
  
- * Para visualizar o CPF gerado, faça uma requisição **GET** para o endereço *localhost:8080/pessoa/{**id**}*, onde o campo *id* deve ser preenchido com o id retornado na resposta da requisição **POST**.
+ * Para visualizar o CPF gerado, faça uma requisição **GET** para o endereço *localhost:8080/pessoa/{**id**}*, onde o campo *id* deve ser preenchido com o *id* retornado na resposta da requisição **POST**.
