@@ -1,6 +1,6 @@
 # Microsserviço Cartório
 
-Você já precisou tirar uma certidão de nascimento de um bebê que acabou de nascer? Já observou que o CPF é gerado nesse momento? Já pensou em como é gerado esse CPF e quem mantem esses registros?
+Você já precisou recorrer ao cartório para retirar uma certidão de nascimento de um bebê que acabou de nascer? Já pensou em como é gerado o CPF e quem é responsavel por manter esses registros?
 
 Este projeto é um microsserviço responsável por enviar a solicitação da geração de um novo CPF, receber do [microsserviço da receita federal](https://github.com/camins/microsservico-kafka-springboot-receitaFederal) o CPF gerado e gravar na pessoa da requisição.
 
